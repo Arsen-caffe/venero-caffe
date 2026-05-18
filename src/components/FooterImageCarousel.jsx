@@ -118,16 +118,16 @@ export function FooterImageCarousel({ images }) {
               <div
                 key={src}
                 data-carousel-slide
-                className="flex h-[210px] w-[126px] shrink-0 flex-col items-center justify-center rounded-2xl border border-stone-300/30 bg-[#f3ebe0]/70 p-3 shadow-sm ring-1 ring-stone-300/20 sm:h-[238px] sm:w-[146px] dark:border-white/5 dark:bg-stone-900/35 dark:ring-white/5"
+                className="flex h-[270px] w-[160px] shrink-0 flex-col items-center justify-center rounded-2xl border border-stone-300/30 bg-[#f3ebe0]/70 p-3.5 shadow-sm ring-1 ring-stone-300/20 sm:h-[300px] sm:w-[184px] dark:border-white/5 dark:bg-stone-900/35 dark:ring-white/5"
               >
                 <img
                   src={src}
                   alt=""
-                  width={120}
-                  height={180}
+                  width={160}
+                  height={240}
                   loading="lazy"
                   decoding="async"
-                  className="max-h-[160px] w-auto max-w-full rounded-xl object-contain sm:max-h-[184px]"
+                  className="max-h-[210px] w-auto max-w-full rounded-xl object-contain sm:max-h-[240px]"
                 />
               </div>
             ))}

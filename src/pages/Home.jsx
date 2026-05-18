@@ -10,15 +10,17 @@ export function Home() {
 
   return (
     <main>
-      <section id="home" className="relative isolate overflow-hidden px-4 pt-24 text-white sm:px-6 lg:px-8">
-        <img
-          src={images.hero}
-          alt=""
-          className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-95"
-        />
-        <div className="absolute inset-0 z-0 bg-linear-to-br from-stone-950/92 via-stone-900/70 to-amber-950/55"></div>
+      <section id="home" className="relative isolate min-h-dvh overflow-hidden pt-24 text-white sm:min-h-svh">
+        <div className="pointer-events-none absolute inset-0 z-0 bg-stone-950" aria-hidden="true">
+          <img
+            src={images.hero}
+            alt=""
+            className="hero-photo absolute inset-x-0 top-0 z-0 h-auto w-full max-w-none sm:inset-0 sm:size-full sm:object-cover sm:object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(12_10_9/0.9)_0%,rgb(12_10_9/0.65)_40%,rgb(12_10_9/0.2)_65%,transparent_85%),linear-gradient(to_top,rgb(12_10_9/0.92)_0%,rgb(12_10_9/0.5)_32%,transparent_58%)] sm:bg-linear-to-br sm:from-stone-950/92 sm:via-stone-900/70 sm:to-amber-950/55"></div>
+        </div>
         <div className="absolute -right-24 bottom-10 z-0 hidden h-72 w-72 rounded-full bg-amber-500/20 blur-3xl lg:block"></div>
-        <div className="relative z-10 mx-auto flex min-h-[88svh] max-w-7xl items-center py-14 sm:min-h-[90svh] sm:py-20">
+        <div className="relative z-10 mx-auto flex min-h-[calc(100dvh-6rem)] max-w-7xl items-center px-4 py-14 sm:min-h-[calc(100svh-6rem)] sm:px-6 sm:py-20 lg:px-8">
           <div className="max-w-3xl">
             <img src={images.logo} alt={`${BRAND.name} — ${BRAND.tagline}`} className="mb-7 h-24 w-auto sm:h-36 lg:h-44" />
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.32em] text-amber-300 sm:text-sm sm:tracking-[0.4em]">{t.heroEyebrow}</p>

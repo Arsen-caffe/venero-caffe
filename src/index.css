@@ -43,6 +43,10 @@ svg {
   max-width: 100%;
 }
 
+#home .hero-photo {
+  max-width: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
