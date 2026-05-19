@@ -3,13 +3,13 @@
   "short_name": "Venero",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/venero-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/venero-apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"

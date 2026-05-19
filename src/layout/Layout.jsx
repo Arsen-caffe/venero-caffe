@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { BRAND, images } from '../content'
 import { useSite } from '../hooks/useSite'
@@ -8,6 +8,8 @@ import { ScrollToHash } from '../components/ScrollToHash'
 
 export function Layout() {
   const { t, setLanguage, isDark, setIsDark, menuOpen, setMenuOpen } = useSite()
+  const menuRef = useRef(null)
+  const menuButtonRef = useRef(null)
 
   useEffect(() => {
     if (!menuOpen) return
@@ -16,8 +18,19 @@ export function Layout() {
       if (e.key === 'Escape') setMenuOpen(false)
     }
 
+    const onPointerDown = (e) => {
+      const target = e.target
+      if (!(target instanceof Node)) return
+      if (menuRef.current?.contains(target) || menuButtonRef.current?.contains(target)) return
+      setMenuOpen(false)
+    }
+
     document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('pointerdown', onPointerDown)
+    }
   }, [menuOpen, setMenuOpen])
 
   return (
@@ -68,6 +81,7 @@ export function Layout() {
           </div>
 
           <button
+            ref={menuButtonRef}
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300 lg:hidden"
             onClick={() => setMenuOpen((value) => !value)}
@@ -86,14 +100,16 @@ export function Layout() {
 
         {menuOpen && (
           <>
-            <button
-              type="button"
-              className="fixed inset-0 z-40 cursor-default bg-black/50 lg:hidden"
-              aria-label="Close menu"
-              onClick={() => setMenuOpen(false)}
+            <div
+              aria-hidden="true"
+              className="fixed inset-0 z-40 bg-black/50 lg:hidden"
             />
-            <div id="mobile-navigation" className="relative z-50 border-t border-white/10 bg-stone-950/95 px-4 py-5 shadow-2xl shadow-black/30 lg:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col gap-2">
+            <div
+              ref={menuRef}
+              id="mobile-navigation"
+              className="relative z-50 border-t border-white/10 bg-stone-950/95 px-4 py-5 shadow-2xl shadow-black/30 lg:hidden"
+            >
+              <div className="mx-auto flex max-w-7xl flex-col gap-2">
               {[
                 ['home', t.nav[0]],
                 ['about', t.nav[1]],
@@ -127,7 +143,7 @@ export function Layout() {
                 </button>
               </div>
             </div>
-          </div>
+            </div>
           </>
         )}
       </header>
