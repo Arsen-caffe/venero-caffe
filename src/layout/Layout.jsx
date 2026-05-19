@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { BRAND, images } from '../content'
 import { useSite } from '../hooks/useSite'
@@ -8,10 +9,21 @@ import { ScrollToHash } from '../components/ScrollToHash'
 export function Layout() {
   const { t, setLanguage, isDark, setIsDark, menuOpen, setMenuOpen } = useSite()
 
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [menuOpen, setMenuOpen])
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f7f0e6] text-stone-950 antialiased transition-colors duration-500 dark:bg-stone-950 dark:text-stone-50">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-stone-950/75 text-white shadow-lg shadow-black/10 backdrop-blur-xl dark:bg-stone-950/85">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
+        <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
           <Link
             to="/"
             className="flex min-h-11 items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
@@ -73,7 +85,14 @@ export function Layout() {
         </nav>
 
         {menuOpen && (
-          <div id="mobile-navigation" className="border-t border-white/10 bg-stone-950/95 px-4 py-5 shadow-2xl shadow-black/30 lg:hidden">
+          <>
+            <button
+              type="button"
+              className="fixed inset-0 z-40 cursor-default bg-black/50 lg:hidden"
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+            />
+            <div id="mobile-navigation" className="relative z-50 border-t border-white/10 bg-stone-950/95 px-4 py-5 shadow-2xl shadow-black/30 lg:hidden">
             <div className="mx-auto flex max-w-7xl flex-col gap-2">
               {[
                 ['home', t.nav[0]],
@@ -109,6 +128,7 @@ export function Layout() {
               </div>
             </div>
           </div>
+          </>
         )}
       </header>
 
