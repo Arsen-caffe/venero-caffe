@@ -43,7 +43,7 @@ export function CategoryPage() {
               <ContactChannelsLight t={t} className="mt-8 justify-start" />
             </div>
             <div className="rounded-3xl border border-stone-200/70 bg-[#f3ebe0]/85 p-5 shadow-xl shadow-amber-950/10 ring-1 ring-stone-200/50 sm:p-8 lg:rounded-4xl dark:border-white/10 dark:bg-stone-900/50 dark:ring-white/10">
-              <img src={heroImg} alt="" className="mx-auto h-44 rounded-2xl object-contain sm:h-56 lg:h-64" />
+              <img src={heroImg} alt="" className="mx-auto h-36 rounded-2xl object-contain sm:h-32 lg:h-36" />
             </div>
           </div>
         </div>

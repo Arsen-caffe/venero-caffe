@@ -63,7 +63,9 @@ export function Home() {
                 <img
                   src={categoryImage(category.slug)}
                   alt=""
-                  className="mx-auto h-32 rounded-2xl object-contain transition duration-300 group-hover:scale-105 sm:h-36 lg:h-40"
+                  className={`mx-auto rounded-2xl object-contain transition duration-300 group-hover:scale-105 ${
+                    category.slug === 'office' ? 'h-20 sm:h-24 lg:h-28' : 'h-32 sm:h-36 lg:h-40'
+                  }`}
                 />
                 <h3 className="mt-5 text-2xl font-black uppercase text-amber-900 sm:text-3xl dark:text-amber-200">{category.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-stone-600 sm:text-base dark:text-stone-300">{category.text}</p>
