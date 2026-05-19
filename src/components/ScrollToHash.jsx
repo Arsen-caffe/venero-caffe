@@ -1,20 +1,15 @@
 import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { scheduleScrollToHomeSection } from '../navUtils'
+import { scheduleScrollToSection } from '../navUtils'
 
 /**
- * Scrolls to the element matching location.hash when the home page is shown.
+ * Scrolls to the element matching location.hash after navigation.
  * React Router does not replicate the browser’s default fragment scroll for SPA navigations.
  */
 export function ScrollToHash() {
   const { pathname, hash } = useLocation()
 
   useLayoutEffect(() => {
-    if (pathname !== '/') {
-      if (!hash) window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-      return
-    }
-
     if (!hash || hash === '#') {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
       return
@@ -23,7 +18,7 @@ export function ScrollToHash() {
     const id = hash.slice(1)
     if (!id) return
 
-    return scheduleScrollToHomeSection(id)
+    return scheduleScrollToSection(id)
   }, [pathname, hash])
 
   return null

@@ -1,9 +1,13 @@
 import { Link, useLocation } from 'react-router-dom'
-import { homeSectionHash, scheduleScrollToHomeSection } from '../navUtils'
+import { homeSectionHash, scheduleScrollToSection } from '../navUtils'
 
 export function HomeSectionLink({ sectionId, className, children, onClick, ...props }) {
   const location = useLocation()
-  const target = homeSectionHash(sectionId)
+  const onProductPage = /^\/products\/[^/]+$/.test(location.pathname)
+  const target =
+    onProductPage && sectionId === 'contact'
+      ? { pathname: location.pathname, hash: '#contact' }
+      : homeSectionHash(sectionId)
 
   return (
     <Link
@@ -13,17 +17,17 @@ export function HomeSectionLink({ sectionId, className, children, onClick, ...pr
         onClick?.(e)
         if (e.defaultPrevented) return
 
-        const onHome = location.pathname === '/'
-        const sameTarget = location.pathname === target.pathname && location.hash === target.hash
+        const samePath = location.pathname === target.pathname
+        const sameHash = location.hash === target.hash
 
-        if (onHome && sameTarget) {
+        if (samePath && sameHash) {
           e.preventDefault()
-          scheduleScrollToHomeSection(sectionId)
+          scheduleScrollToSection(sectionId)
           return
         }
 
-        if (onHome) {
-          scheduleScrollToHomeSection(sectionId)
+        if (samePath || target.pathname === '/') {
+          scheduleScrollToSection(sectionId)
         }
       }}
       {...props}

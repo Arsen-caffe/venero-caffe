@@ -45,6 +45,13 @@ svg {
 
 #home .hero-photo {
   max-width: none;
+  top: calc(4rem + env(safe-area-inset-top, 0px));
+}
+
+@media (min-width: 640px) {
+  #home .hero-photo {
+    top: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

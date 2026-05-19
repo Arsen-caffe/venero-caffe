@@ -3,7 +3,9 @@ import { CATEGORY_SLUGS, categoryImage, categoryVideos, resolveImage } from '../
 import { useSite } from '../hooks/useSite'
 import { HomeSectionLink } from '../components/HomeSectionLink'
 import { ContactChannelsLight } from '../components/ContactChannels'
+import { ContactSection } from '../components/ContactSection'
 import { ProductCarousel } from '../components/ProductCarousel'
+import { scrollToSection } from '../navUtils'
 
 export function CategoryPage() {
   const { category } = useParams()
@@ -70,7 +72,17 @@ export function CategoryPage() {
             {items.map((product, index) => (
               <article
                 key={`${product.name}-${product.imageKey}-${index}`}
-                className="w-[min(82vw,250px)] shrink-0 snap-start rounded-3xl border border-stone-200/80 bg-white/85 p-5 text-center shadow-lg shadow-amber-950/10 ring-1 ring-amber-950/5 backdrop-blur-sm sm:w-[270px] sm:p-6 dark:border-white/10 dark:bg-white/5 dark:ring-white/5"
+                role="button"
+                tabIndex={0}
+                onClick={() => scrollToSection('contact')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    scrollToSection('contact')
+                  }
+                }}
+                aria-label={`${product.name} — ${t.contactTitle}`}
+                className="w-[min(82vw,250px)] shrink-0 cursor-pointer snap-start rounded-3xl border border-stone-200/80 bg-white/85 p-5 text-center shadow-lg shadow-amber-950/10 ring-1 ring-amber-950/5 backdrop-blur-sm transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-500 sm:w-[270px] sm:p-6 dark:border-white/10 dark:bg-white/5 dark:ring-white/5"
               >
                 <img src={resolveImage(product.imageKey)} alt="" className="mx-auto h-40 rounded-2xl object-contain sm:h-48" />
                 <h3 className="mt-4 text-base font-black uppercase text-amber-900 sm:text-lg dark:text-amber-100">{product.name}</h3>
@@ -81,6 +93,8 @@ export function CategoryPage() {
           </ProductCarousel>
         </div>
       </section>
+
+      <ContactSection t={t} />
     </main>
   )
 }

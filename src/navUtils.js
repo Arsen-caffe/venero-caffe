@@ -4,7 +4,7 @@ export function homeSectionHash(sectionId) {
   return { pathname: '/', hash: `#${id}` }
 }
 
-export function scrollToHomeSection(sectionId) {
+export function scrollToSection(sectionId) {
   const id = sectionId.startsWith('#') ? sectionId.slice(1) : sectionId
   const el = document.getElementById(id)
   if (!el) return false
@@ -12,9 +12,15 @@ export function scrollToHomeSection(sectionId) {
   return true
 }
 
-/** Retry scroll until the home page section is in the DOM (route + paint). */
-export function scheduleScrollToHomeSection(sectionId) {
+/** @deprecated Use scrollToSection */
+export const scrollToHomeSection = scrollToSection
+
+/** Retry scroll until the target section is in the DOM (route + paint). */
+export function scheduleScrollToSection(sectionId) {
   const delays = [0, 50, 150, 350, 600]
-  const timers = delays.map((ms) => window.setTimeout(() => scrollToHomeSection(sectionId), ms))
+  const timers = delays.map((ms) => window.setTimeout(() => scrollToSection(sectionId), ms))
   return () => timers.forEach((id) => window.clearTimeout(id))
 }
+
+/** @deprecated Use scheduleScrollToSection */
+export const scheduleScrollToHomeSection = scheduleScrollToSection

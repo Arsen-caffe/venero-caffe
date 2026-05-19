@@ -15,7 +15,7 @@ export const images = {
   beans: '/images/venero-beans.png',
   home: product('coffe-1.png'),
   bar: product('coffe-2.png'),
-  office: product('product-pod-ese.png'),
+  office: product('product-office-pods.png'),
   coffe1: product('coffe-1.png'),
   coffe2: product('coffe-2.png'),
   bagGold: product('product-bag-gold.png'),
@@ -29,6 +29,10 @@ export const images = {
   machinesAroma: product('product-machines-aroma.png'),
   espressoCup: product('product-espresso-cup.png'),
   officeMachine: product('product-office-machine.png'),
+  carouselBubu: product('carousel-bubu-machine.png'),
+  carouselFrog: product('carousel-frog-machine.png'),
+  carouselEspressoBox: product('carousel-espresso-box.png'),
+  carouselPodsHands: product('carousel-pods-hands.png'),
 }
 
 export const videos = [
@@ -50,24 +54,23 @@ export const categoryVideos = {
 
 export function categoryImage(slug) {
   if (slug === 'bar') return images.coffe2
-  if (slug === 'office') return images.podEse
+  if (slug === 'office') return images.office
   return images.coffe1
 }
 
 export const footerCarouselImages = [
-  images.bagGold,
-  images.bagBlack,
-  images.capsuleBlue,
   images.capsulesSachet,
-  images.podEse,
   images.podsBox,
   images.homeMachine,
   images.homePodBrew,
   images.machinesAroma,
   images.espressoCup,
   images.officeMachine,
-  images.coffe1,
-  images.coffe2,
+  images.office,
+  images.carouselBubu,
+  images.carouselFrog,
+  images.carouselEspressoBox,
+  images.carouselPodsHands,
 ]
 
 /** Update these URLs to match your real channels */
@@ -135,16 +138,16 @@ export const copy = {
     },
     catalog: {
       home: [
-        { name: 'Espresso in Capsule', detail: 'Crema e Gusto — variant blu, 7.2 g', price: 'Kontaktoni', imageKey: 'capsuleBlue' },
-        { name: 'Espresso', detail: 'Cialde E.S.E. — Italian Taste', price: 'Kontaktoni', imageKey: 'podEse' },
+        { name: 'Espresso in Capsule', detail: 'Kapsula Point Pako me 100 kapsula + set (gota sheqer dhe përzierës)', price: 'Porosite tani', imageKey: 'capsuleBlue' },
+        { name: 'Espresso In Cialde', detail: 'Bustina Cialde per sistemet PODS Pako me 150 bustina + set (gota sheqer dhe përzierës)', price: 'Porosite tani', imageKey: 'podEse' },
       ],
       bar: [
-        { name: 'Italian Blend Intenso', detail: 'Blend për volum të lartë', price: 'Kontaktoni', imageKey: 'bagBlack' },
-        { name: 'Italian Blend Coffee', detail: 'Blend i balancuar për ekipin', price: 'Kontaktoni', imageKey: 'bagGold' },
+        { name: 'Italian Blend Intenso', detail: 'Blend për volum të lartë', price: 'Porosite tani', imageKey: 'bagBlack' },
+        { name: 'Italian Blend Coffee', detail: 'Blend i balancuar për ekipin', price: 'Porosite tani', imageKey: 'bagGold' },
       ],
       office: [
-        { name: 'Espresso', detail: 'Cialde E.S.E. — Italian Taste', price: 'Kontaktoni', imageKey: 'podEse' },
-        { name: 'Espresso in Capsule', detail: 'Crema e Gusto — variant blu, 7.2 g', price: 'Kontaktoni', imageKey: 'capsuleBlue' },
+        { name: 'Espresso in Capsule', detail: 'Kapsula Point Pako me 100 kapsula + set (gota sheqer dhe përzierës)', price: 'Porosite tani', imageKey: 'capsuleBlue' },
+        { name: 'Espresso In Cialde', detail: 'Bustina Cialde per sistemet PODS Pako me 150 bustina + set (gota sheqer dhe përzierës)', price: 'Porosite tani', imageKey: 'podEse' },
       ],
     },
     differenceTitle: 'Çfarë na dallon ne?',
