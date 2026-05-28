@@ -29,6 +29,7 @@ export const images = {
   machinesAroma: product('product-machines-aroma.png'),
   espressoCup: product('product-espresso-cup.png'),
   officeMachine: product('product-office-machine.png'),
+  espressoOffer: product('product-office-espresso-offer.jpeg'),
   carouselFrog: product('carousel-frog-machine.png'),
   carouselEspressoBox: product('carousel-espresso-box.png'),
   carouselPodsHands: product('carousel-pods-hands.png'),
@@ -187,6 +188,30 @@ export const copy = {
     instagramLabel: 'Instagram',
     phoneHeading: 'Numri i kontaktit',
     emailLabel: 'Email',
+    promoOffer: {
+      eyebrow: 'OFERTA E MUAJIT',
+      title: 'Shijo espresso si ne bar, cdo dite.',
+      text: 'Me vetem nje pako me 100 bustina ne muaj, perfitoni ekspres profesional ne perdorim, asistence teknike dhe furnizim te rregullt me bustina 100% italiane.',
+      cta: 'Shiko oferten',
+    },
+    espressoOfferPage: {
+      eyebrow: 'ESPRESSO PER SHTEPI DHE BIZNES',
+      title: 'Shijo espresso si ne bar, cdo dite.',
+      intro:
+        'Zgjidhja ideale per shtepi, zyra dhe biznese qe duan cilesi profesionale, thjeshtesi ne perdorim dhe furnizim te rregullt.',
+      monthlyPack: 'Me vetem nje pako me 100 bustina ne muaj ju perfitoni:',
+      benefits: [
+        'Ekspres profesional ne perdorim pa pagese',
+        'Sherbim dhe asistence teknike',
+        'Furnizim i rregullt me bustina 100% italiane',
+      ],
+      audienceTitle: 'Perfekte per cdo ambient',
+      audienceText:
+        'Nje zgjidhje praktike dhe elegante per zyra, biznese apo ambiente ku cilesia ben diferencen.',
+      audienceItems: ['Shtepi', 'Zyra', 'Biznes'],
+      primaryCta: 'Porositeni tani',
+      secondaryCta: 'Na kontaktoni',
+    },
   },
   en: {
     nav: ['Home', 'About', 'Products', 'Contact'],
@@ -293,6 +318,30 @@ export const copy = {
     instagramLabel: 'Instagram',
     phoneHeading: 'Contact number',
     emailLabel: 'Email',
+    promoOffer: {
+      eyebrow: 'MONTHLY OFFER',
+      title: 'Enjoy bar-style espresso every day.',
+      text: 'With just one pack of 100 pods per month, you get a professional espresso machine to use, technical support, and regular supply of 100% Italian pods.',
+      cta: 'View offer',
+    },
+    espressoOfferPage: {
+      eyebrow: 'ESPRESSO FOR HOME AND BUSINESS',
+      title: 'Enjoy bar-style espresso every day.',
+      intro:
+        'An ideal solution for homes, offices, and businesses that want professional quality, easy use, and a dependable coffee supply.',
+      monthlyPack: 'With only one pack of 100 pods per month you receive:',
+      benefits: [
+        'Professional espresso machine included for use',
+        'Service and technical assistance',
+        'Regular supply of 100% Italian pods',
+      ],
+      audienceTitle: 'Made for every setting',
+      audienceText:
+        'A practical and elegant setup for offices, businesses, or any space where quality makes the difference.',
+      audienceItems: ['Home', 'Office', 'Business'],
+      primaryCta: 'Order now',
+      secondaryCta: 'Contact us',
+    },
   },
 }
 

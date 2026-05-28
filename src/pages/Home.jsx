@@ -81,6 +81,35 @@ export function Home() {
         </div>
       </section>
 
+      <section className="px-4 py-2 sm:px-6 sm:py-4 lg:px-8">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-linear-to-br from-stone-950 via-stone-900 to-amber-950 text-white shadow-2xl shadow-amber-950/15 ring-1 ring-white/10 lg:rounded-4xl">
+          <div className="grid gap-8 p-5 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:p-10">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.32em] text-amber-300 sm:text-sm sm:tracking-[0.35em]">
+                {t.promoOffer.eyebrow}
+              </p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                {t.promoOffer.title}
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">{t.promoOffer.text}</p>
+              <Link
+                to="/espresso-si-ne-bar"
+                className="mt-7 inline-flex min-h-12 items-center rounded-full bg-amber-500 px-7 py-3.5 text-sm font-bold text-stone-950 shadow-lg shadow-amber-950/25 transition hover:-translate-y-0.5 hover:bg-amber-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-200 sm:text-base"
+              >
+                {t.promoOffer.cta}
+              </Link>
+            </div>
+            <div className="rounded-3xl bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur-sm">
+              <img
+                src="/images/products/product-office-espresso-home-promo.jpeg"
+                alt="Red Venero espresso machine with pods and coffee box"
+                className="w-full rounded-[1.4rem] object-cover shadow-2xl shadow-black/20"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-stone-950 px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <div className="pointer-events-none absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-amber-500/15 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
@@ -149,4 +178,3 @@ function SectionHeading({ eyebrow, title, text, align = 'center' }) {
     </div>
   )
 }
-
