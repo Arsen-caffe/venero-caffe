@@ -90,10 +90,10 @@ export const copy = {
     themeAriaDark: 'Aktivizo modalitetin e dritës',
     language: 'EN',
     heroEyebrow: 'Venero Caffe',
-    heroTitle: 'Tradita italiane në çdo filxhan.',
+    heroTitle: 'Tradita Italiane në çdo filxhan',
     heroText:
       'Çdo arritje nis me frymëzimin e duhur dhe një kafe të mirë pranë jush. Ne jemi këtu për t’ju shoqëruar në çdo fillim të ri.',
-    order: 'Niseni sot këtë eksperiencë.',
+    order: 'Niseni sot këtë eksperiencë',
     explore: 'Produktet Venero',
     productsTitle: 'PRODUKTET TONA',
     productsIntro:
@@ -190,13 +190,13 @@ export const copy = {
     emailLabel: 'Email',
     promoOffer: {
       eyebrow: 'OFERTA E MUAJIT',
-      title: 'Shijo espresso si ne bar, cdo dite.',
+      title: 'Shijoni espresso si ne bar ne ambjentet tuaja, sa here deshironi!',
       text: 'Me vetem nje pako me 100 bustina ne muaj, perfitoni ekspres profesional ne perdorim, asistence teknike dhe furnizim te rregullt me bustina 100% italiane.',
       cta: 'Shiko oferten',
     },
     espressoOfferPage: {
       eyebrow: 'ESPRESSO PER SHTEPI DHE BIZNES',
-      title: 'Shijo espresso si ne bar, cdo dite.',
+      title: 'Shijo espresso si ne bar, cdo dite',
       intro:
         'Zgjidhja ideale per shtepi, zyra dhe biznese qe duan cilesi profesionale, thjeshtesi ne perdorim dhe furnizim te rregullt.',
       monthlyPack: 'Me vetem nje pako me 100 bustina ne muaj ju perfitoni:',
